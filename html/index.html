@@ -1,0 +1,251 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Para meu amor ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #111;
+        font-family: 'Arial', sans-serif;
+        overflow-x: hidden;
+        color: white;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 20px;
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+
+    /* GRID */
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 180px);
+        gap: 25px;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    /* CARD */
+    .card {
+        width: 180px;
+        height: 180px;
+        perspective: 1000px;
+        cursor: pointer;
+    }
+
+    .inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .card.flip .inner {
+        transform: rotateY(180deg);
+    }
+
+    .front, .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .front {
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.9);
+        transition: 0.4s;
+    }
+    .front:hover {
+        filter: brightness(1.1);
+        transform: scale(1.05);
+    }
+
+    .back {
+        background: #222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        font-size: 18px;
+        transform: rotateY(180deg);
+        line-height: 1.3;
+    }
+
+    /* CORAÇÕES FLUTUANDO */
+    .heart {
+        position: fixed;
+        bottom: -20px;
+        color: #ff5fa2;
+        font-size: 20px;
+        animation: subir 4s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes subir {
+        0% { transform: translateY(0) translateX(0); opacity: 1; }
+        100% { transform: translateY(-800px) translateX(40px); opacity: 0; }
+    }
+
+    /* CARTA FINAL */
+    #final-card {
+        margin: 50px auto;
+        width: 70%;
+        padding: 30px;
+        background: #222;
+        border-radius: 15px;
+        font-size: 22px;
+        display: none;
+        animation: aparecer 1s ease;
+    }
+
+    @keyframes aparecer {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    /* BOTÃO EU TE AMO */
+    #loveBtn {
+        margin-top: 30px;
+        padding: 15px 30px;
+        border: none;
+        background: #ff4d8b;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        display: none;
+    }
+    #loveBtn:hover {
+        transform: scale(1.1);
+        background: #ff1f72;
+    }
+
+</style>
+</head>
+<body>
+
+<h1>Feliz dia nosso ❤️</h1>
+
+<audio id="musica" src="alagar.mp3" loop autoplay muted></audio>
+
+<script>
+    document.addEventListener("click", () => {
+        const audio = document.getElementById("musica");
+        audio.muted = false;
+        audio.volume = 0.01; // volume mais baixo
+        audio.play();
+    });
+</script>
+
+<!-- GRID -->
+<div class="container">
+    <div class="card" onclick="flip(this)">
+        <div class="inner">
+            <div class="front" style="background-image:url('https://media.discordapp.net/attachments/1158948553222279290/1428069556320211005/15.10.25_1.png?ex=69180d2a&is=6916bbaa&hm=5f0ca376e96b17b6de6f7c6bd517c6ef85001864b09c6253893c25fa1b928c1d&=&format=webp&quality=lossless&width=781&height=976')"></div>
+            <div class="back">Meu amorzinho</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="flip(this)">
+        <div class="inner">
+            <div class="front" style="background-image:url('https://media.discordapp.net/attachments/1158948553222279290/1426038543964176505/20251010_034727.jpg?ex=691892a3&is=69174123&hm=67f34d9245c973b20586d5e10c88bf9d1cbe7d55acdf1175d765e8f5911efebd&=&format=webp&width=433&height=960')"></div>
+            <div class="back">Nosso Mundinho</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="flip(this)">
+        <div class="inner">
+            <div class="front" style="background-image:url('https://media.discordapp.net/attachments/1158948553222279290/1183210066476793886/image.png?ex=691877fe&is=6917267e&hm=5e7591c2b9a6e2b0a8fbe53660e0f9f9fc6ea5977b760ddf7dd5bdab55c5e3e3&=&format=webp&quality=lossless&width=1532&height=856')"></div>
+            <div class="back">Meu mundinho</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="flip(this)">
+        <div class="inner">
+            <div class="front" style="background-image:url('https://media.discordapp.net/attachments/1158948553222279290/1404287524850897018/image.png?ex=69188b6c&is=691739ec&hm=6ca7fec20c7a66470e0e8d6de75df85e348025a8f0b2554138f460613bd59ef2&=&format=webp&quality=lossless')"></div>
+            <div class="back">Meu orgulho...</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="flip(this)">
+        <div class="inner">
+            <div class="front" style="background-image:url('https://media.discordapp.net/attachments/1158948553222279290/1187846015718535228/image.png?ex=6918320f&is=6916e08f&hm=6510de96577a9da68511b348fb2260ec16579afd3c94d36235dc13594ddb1f5a&=&format=webp&quality=lossless&width=1550&height=872')"></div>
+            <div class="back">Meu lar</div>
+        </div>
+    </div>
+
+    <div class="card" onclick="flip(this)">
+        <div class="inner">
+            <div class="front" style="background-image:url('https://media.discordapp.net/attachments/1158948553222279290/1188628727886778488/image.png?ex=69186804&is=69171684&hm=797b6f20710e5deea74074870f3b5e2a737239fbdd12e27e12097a37537073d0&=&format=webp&quality=lossless')"></div>
+            <div class="back">Minha vida.</div>
+        </div>
+    </div>
+</div>
+
+<!-- MENSAGEM FINAL -->
+<div id="final-card">
+Meu amor, cada momento ao seu lado virou parte da minha história favorita. Cada foto dessas guarda um pedacinho do que somos… nosso filhinho orelhudo, nossos joguinhos, nossas risadas, nossos momentos só nossos. Tudo isso constrói quem a gente é, e eu quero continuar criando milhares de histórias ao seu lado.
+
+Obrigado por tudo o que já vivemos e por tudo o que ainda vamos viver.
+Eu te amo mais do que qualquer palavra consegue explicar. ❤️
+</div>
+
+<button id="loveBtn" onclick="explosion()">EU TE AMO ❤️</button>
+
+<script>
+let flippedCount = 0;
+
+function flip(card) {
+    if (!card.classList.contains("flip")) {
+        flippedCount++;
+    }
+    card.classList.toggle("flip");
+
+    if (flippedCount >= 6) {
+        document.getElementById("final-card").style.display = "block";
+        document.getElementById("loveBtn").style.display = "inline-block";
+    }
+}
+
+/* CORAÇÕES RANDOM */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 4000);
+}, 500);
+
+/* BOTÃO EU TE AMO – EXPLOSÃO DE CORAÇÕES */
+function explosion() {
+    for (let i = 0; i < 30; i++) {
+        const h = document.createElement("div");
+        h.classList.add("heart");
+        h.innerHTML = "💖";
+        h.style.left = Math.random() * window.innerWidth + "px";
+        h.style.fontSize = (25 + Math.random() * 25) + "px";
+        document.body.appendChild(h);
+
+        setTimeout(() => h.remove(), 3000);
+    }
+}
+</script>
+
+</body>
+</html>
